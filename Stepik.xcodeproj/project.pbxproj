@@ -60,17 +60,25 @@
 		6A6472F522C376CF00E1F9FD /* Stepik */ = {
 			isa = PBXGroup;
 			children = (
+				6A64731022C3879800E1F9FD /* Model */,
 				6A6472F622C376CF00E1F9FD /* AppDelegate.swift */,
 				6A6472F822C376CF00E1F9FD /* ViewController.swift */,
 				6A6472FA22C376CF00E1F9FD /* Main.storyboard */,
 				6A6472FD22C376D100E1F9FD /* Assets.xcassets */,
 				6A6472FF22C376D100E1F9FD /* LaunchScreen.storyboard */,
 				6A64730222C376D100E1F9FD /* Info.plist */,
+			);
+			path = Stepik;
+			sourceTree = "<group>";
+		};
+		6A64731022C3879800E1F9FD /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				6A64730822C3771100E1F9FD /* FileNotebook.swift */,
 				6A64730C22C3773E00E1F9FD /* Note.swift */,
 				6A64730E22C3778C00E1F9FD /* Note Extension.swift */,
 			);
-			path = Stepik;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
