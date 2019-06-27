@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Stepik
 
 class StepikTests: XCTestCase {
 
@@ -21,7 +22,8 @@ class StepikTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+        let val = try! 1.0.reverseSinus()
+        XCTAssertEqual(0.8414709848078965, val)
     }
 
     func testPerformanceExample() {

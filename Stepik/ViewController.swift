@@ -35,4 +35,18 @@ class ViewController: UIViewController {
 
 
 }
+enum MyError: Error {
+    case runtimeError(String)
+}
 
+extension Double {
+    
+    func reverseSinus() throws -> Double {
+        if (abs(self) < Double.ulpOfOne) {
+            throw MyError.runtimeError("sorry")
+        }
+        
+        return sin(1 / self)
+    }
+    
+}
