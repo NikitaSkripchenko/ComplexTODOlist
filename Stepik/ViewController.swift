@@ -9,16 +9,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var backgroundView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let note = Note(title: "s", content: "sa", priority: .base, uid: "123", color: .red)
-        let noteBook = FileNotebook()
-        noteBook.add(note)
-        noteBook.saveToFile()
+        #if DEBUG
+        backgroundView.backgroundColor = .green
+        #elseif STAGE
+        backgroundView.backgroundColor = .green
+        #else
+        backgroundView.backgroundColor = .red
+        #endif
         // Do any additional setup after loading the view.
     }
-    
+
+    #if DEBUG
+    static let apiUrl = "alpha.api.someapi.com"
+    #elseif STAGE
+    static let apiUrl = "stage.api.someapi.com"
+    #else
+    static let apiUrl = "prod.api.someapi.com"
+    #endif
     
    
 
