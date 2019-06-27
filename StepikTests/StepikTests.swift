@@ -22,8 +22,13 @@ class StepikTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let val = try! 1.0.reverseSinus()
-        XCTAssertEqual(0.8414709848078965, val)
+        let note = Note(title: "", content: "", priority: .base)
+        let title = note.title
+        
+        XCTAssertEqual("", title )
+        XCTAssertNotNil(note.uid)
+        XCTAssertEqual(UIColor.white, note.color)
+        XCTAssertEqual(Priority.base, note.priority)
     }
 
     func testPerformanceExample() {

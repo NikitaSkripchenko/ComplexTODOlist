@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 class ViewController: UIViewController {
     
@@ -21,6 +22,17 @@ class ViewController: UIViewController {
         backgroundView.backgroundColor = .red
         #endif
         // Do any additional setup after loading the view.
+        
+        DDLog.add(DDOSLogger.sharedInstance)
+        let fileLogger = DDFileLogger()
+        fileLogger.rollingFrequency = 60 * 60 * 24
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
+        DDLog.add(fileLogger)
+        DDLogVerbose("Verbose")
+        DDLogDebug("Debug")
+        DDLogInfo("Info")
+        DDLogWarn("Warn")
+        DDLogError("Error")
     }
 
     #if DEBUG

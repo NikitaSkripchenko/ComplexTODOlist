@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20D08D586C021665814707FC /* Pods_Stepik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66ACAC759BAB73C70C653B9F /* Pods_Stepik.framework */; };
 		6A47309A22C4CE3D0063B4C2 /* StepikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47309922C4CE3D0063B4C2 /* StepikTests.swift */; };
 		6A6472F722C376CF00E1F9FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6472F622C376CF00E1F9FD /* AppDelegate.swift */; };
 		6A6472F922C376CF00E1F9FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6472F822C376CF00E1F9FD /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 		6A64730922C3771100E1F9FD /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A64730822C3771100E1F9FD /* FileNotebook.swift */; };
 		6A64730D22C3773E00E1F9FD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A64730C22C3773E00E1F9FD /* Note.swift */; };
 		6A64730F22C3778C00E1F9FD /* Note Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A64730E22C3778C00E1F9FD /* Note Extension.swift */; };
+		7C0A8651BB1EE18A9DD6F584 /* Pods_StepikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 298CD6EFEA2D137057CEFC02 /* Pods_StepikTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		178992B23D6E7CFD2A0577DF /* Pods-Stepik.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stepik.stage.xcconfig"; path = "Pods/Target Support Files/Pods-Stepik/Pods-Stepik.stage.xcconfig"; sourceTree = "<group>"; };
+		298CD6EFEA2D137057CEFC02 /* Pods_StepikTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepikTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F308C4E0BCDAF7A689A3D1C /* Pods-StepikTests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepikTests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-StepikTests/Pods-StepikTests.stage.xcconfig"; sourceTree = "<group>"; };
+		35ABE7DEA9D66A23C7AD616C /* Pods-StepikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepikTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepikTests/Pods-StepikTests.release.xcconfig"; sourceTree = "<group>"; };
+		66ACAC759BAB73C70C653B9F /* Pods_Stepik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stepik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A47309722C4CE3D0063B4C2 /* StepikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A47309922C4CE3D0063B4C2 /* StepikTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepikTests.swift; sourceTree = "<group>"; };
 		6A47309B22C4CE3D0063B4C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,6 +49,9 @@
 		6A64730822C3771100E1F9FD /* FileNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
 		6A64730C22C3773E00E1F9FD /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		6A64730E22C3778C00E1F9FD /* Note Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note Extension.swift"; sourceTree = "<group>"; };
+		763DB946B92D8B9628AC6C64 /* Pods-Stepik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stepik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stepik/Pods-Stepik.debug.xcconfig"; sourceTree = "<group>"; };
+		79152C2CBF46AE785AFA351A /* Pods-StepikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepikTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepikTests/Pods-StepikTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9C1095524FDD34DF104650E0 /* Pods-Stepik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stepik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stepik/Pods-Stepik.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C0A8651BB1EE18A9DD6F584 /* Pods_StepikTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +67,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20D08D586C021665814707FC /* Pods_Stepik.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		240245C8BE6FE50D0BD30A82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66ACAC759BAB73C70C653B9F /* Pods_Stepik.framework */,
+				298CD6EFEA2D137057CEFC02 /* Pods_StepikTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6A47309822C4CE3D0063B4C2 /* StepikTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +98,8 @@
 				6A6472F522C376CF00E1F9FD /* Stepik */,
 				6A47309822C4CE3D0063B4C2 /* StepikTests */,
 				6A6472F422C376CF00E1F9FD /* Products */,
+				B07ADB706BD7F39F50F8217F /* Pods */,
+				240245C8BE6FE50D0BD30A82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +136,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B07ADB706BD7F39F50F8217F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				763DB946B92D8B9628AC6C64 /* Pods-Stepik.debug.xcconfig */,
+				178992B23D6E7CFD2A0577DF /* Pods-Stepik.stage.xcconfig */,
+				9C1095524FDD34DF104650E0 /* Pods-Stepik.release.xcconfig */,
+				79152C2CBF46AE785AFA351A /* Pods-StepikTests.debug.xcconfig */,
+				2F308C4E0BCDAF7A689A3D1C /* Pods-StepikTests.stage.xcconfig */,
+				35ABE7DEA9D66A23C7AD616C /* Pods-StepikTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,6 +156,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A47309E22C4CE3D0063B4C2 /* Build configuration list for PBXNativeTarget "StepikTests" */;
 			buildPhases = (
+				0CD282848B4C396127B58069 /* [CP] Check Pods Manifest.lock */,
 				6A47309322C4CE3D0063B4C2 /* Sources */,
 				6A47309422C4CE3D0063B4C2 /* Frameworks */,
 				6A47309522C4CE3D0063B4C2 /* Resources */,
@@ -138,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A64730522C376D100E1F9FD /* Build configuration list for PBXNativeTarget "Stepik" */;
 			buildPhases = (
+				4013840AEECFD72A8C41E0C3 /* [CP] Check Pods Manifest.lock */,
 				6A6472EF22C376CF00E1F9FD /* Sources */,
 				6A6472F022C376CF00E1F9FD /* Frameworks */,
 				6A6472F122C376CF00E1F9FD /* Resources */,
+				73C5887DE0C70FBD13AF87B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,6 +247,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CD282848B4C396127B58069 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StepikTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4013840AEECFD72A8C41E0C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Stepik-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73C5887DE0C70FBD13AF87B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Stepik/Pods-Stepik-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stepik/Pods-Stepik-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6A47309322C4CE3D0063B4C2 /* Sources */ = {
@@ -323,6 +431,7 @@
 		};
 		6A47305D22C3B3770063B4C2 /* Stage */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178992B23D6E7CFD2A0577DF /* Pods-Stepik.stage.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -341,6 +450,7 @@
 		};
 		6A47309F22C4CE3D0063B4C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79152C2CBF46AE785AFA351A /* Pods-StepikTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -361,6 +471,7 @@
 		};
 		6A4730A022C4CE3D0063B4C2 /* Stage */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F308C4E0BCDAF7A689A3D1C /* Pods-StepikTests.stage.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -381,6 +492,7 @@
 		};
 		6A4730A122C4CE3D0063B4C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35ABE7DEA9D66A23C7AD616C /* Pods-StepikTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -517,6 +629,7 @@
 		};
 		6A64730622C376D100E1F9FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 763DB946B92D8B9628AC6C64 /* Pods-Stepik.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +648,7 @@
 		};
 		6A64730722C376D100E1F9FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C1095524FDD34DF104650E0 /* Pods-Stepik.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
