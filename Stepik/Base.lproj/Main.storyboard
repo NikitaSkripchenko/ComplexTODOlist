@@ -179,6 +179,7 @@
                         <outlet property="scrollView" destination="CQy-jE-82X" id="WnR-6Z-uG4"/>
                         <outlet property="titleLabel" destination="okf-CT-la5" id="Fpm-YF-rOS"/>
                         <outlet property="whiteView" destination="dVe-DO-RFJ" id="Atz-3f-IJm"/>
+                        <segue destination="e5m-Ud-Xla" kind="show" identifier="ShowColorPalletePicker" id="Mr2-4k-F7Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -210,21 +211,115 @@
             </objects>
             <point key="canvasLocation" x="2745" y="56"/>
         </scene>
-        <!--View Controller-->
+        <!--Color Pick View Controller-->
+        <scene sceneID="GWx-5M-cHJ">
+            <objects>
+                <viewController id="e5m-Ud-Xla" customClass="ColorPickViewController" customModule="Stepik" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FG4-vZ-7oF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tu4-W9-sfN" customClass="ColorPickView" customModule="Stepik" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tu4-W9-sfN" firstAttribute="leading" secondItem="wWT-1J-6su" secondAttribute="leading" id="1Cb-ba-1zT"/>
+                            <constraint firstItem="wWT-1J-6su" firstAttribute="trailing" secondItem="tu4-W9-sfN" secondAttribute="trailing" id="I32-Qm-Shj"/>
+                            <constraint firstItem="tu4-W9-sfN" firstAttribute="top" secondItem="wWT-1J-6su" secondAttribute="top" id="WCo-tT-hBQ"/>
+                            <constraint firstItem="wWT-1J-6su" firstAttribute="bottom" secondItem="tu4-W9-sfN" secondAttribute="bottom" id="gUF-pW-XuB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wWT-1J-6su"/>
+                    </view>
+                    <connections>
+                        <outlet property="colorPickView" destination="tu4-W9-sfN" id="1Zm-un-QF4"/>
+                        <segue destination="WFt-99-xgM" kind="unwind" identifier="UnwindToEditNote" unwindAction="unwindToViewControllerWithSegue:" id="FqK-Xs-a1c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ov2-aU-p5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WFt-99-xgM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3575" y="56"/>
+        </scene>
+        <!--Image List View Controller-->
         <scene sceneID="eep-ub-fPH">
             <objects>
-                <viewController id="i70-DM-hBJ" sceneMemberID="viewController">
+                <viewController id="i70-DM-hBJ" customClass="ImageListViewController" customModule="Stepik" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SLo-vX-1Ic">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zzB-41-2QF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ehd-Ca-pSK">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="i70-DM-hBJ" id="cNw-hz-Y4Q"/>
+                                    <outlet property="delegate" destination="i70-DM-hBJ" id="VyS-xC-jhn"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zzB-41-2QF" firstAttribute="top" secondItem="agX-bI-2Ai" secondAttribute="top" id="EBL-yA-ybF"/>
+                            <constraint firstItem="agX-bI-2Ai" firstAttribute="trailing" secondItem="zzB-41-2QF" secondAttribute="trailing" id="KD5-uE-CPb"/>
+                            <constraint firstItem="zzB-41-2QF" firstAttribute="leading" secondItem="agX-bI-2Ai" secondAttribute="leading" id="cqs-Qg-VVi"/>
+                            <constraint firstItem="agX-bI-2Ai" firstAttribute="bottom" secondItem="zzB-41-2QF" secondAttribute="bottom" id="sws-no-Ggr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="agX-bI-2Ai"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dZL-So-16Y"/>
+                    <navigationItem key="navigationItem" id="dZL-So-16Y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CT2-HQ-j5W">
+                            <connections>
+                                <action selector="addImage:" destination="i70-DM-hBJ" id="COy-Kg-Ofk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="zzB-41-2QF" id="UWU-eU-2GR"/>
+                        <segue destination="2po-bh-wbi" kind="show" identifier="ShowImageNoteScreen" id="0ug-Ij-j8A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Drd-v2-UrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950.7246376811595" y="775.44642857142856"/>
+            <point key="canvasLocation" x="1983" y="775"/>
+        </scene>
+        <!--Image Detail View Controller-->
+        <scene sceneID="flU-W1-CAf">
+            <objects>
+                <viewController id="2po-bh-wbi" customClass="ImageDetailViewController" customModule="Stepik" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gRA-XK-VvJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GzW-R2-adG">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cc9-L6-65j" firstAttribute="trailing" secondItem="GzW-R2-adG" secondAttribute="trailing" id="9aI-bc-heM"/>
+                            <constraint firstItem="GzW-R2-adG" firstAttribute="top" secondItem="Cc9-L6-65j" secondAttribute="top" id="Ccp-bK-Qqg"/>
+                            <constraint firstItem="Cc9-L6-65j" firstAttribute="bottom" secondItem="GzW-R2-adG" secondAttribute="bottom" id="RYg-dz-qbZ"/>
+                            <constraint firstItem="GzW-R2-adG" firstAttribute="leading" secondItem="Cc9-L6-65j" secondAttribute="leading" id="kam-3h-5d2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cc9-L6-65j"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageNoteSlider" destination="GzW-R2-adG" id="RDt-vE-yrh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QhR-Zm-BOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2852" y="775"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7ed-NR-mZ1">
@@ -289,7 +384,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bzg-1P-9bp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2wk-nX-xQC"/>
+                    <navigationItem key="navigationItem" id="2wk-nX-xQC">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="wY3-yX-7hl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ae6-Yw-M7b"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="notesTable" destination="VKA-Ku-bdE" id="TFW-50-PVR"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ShowNoteEditScreen" id="jOX-1F-RTs"/>

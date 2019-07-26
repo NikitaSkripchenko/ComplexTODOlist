@@ -26,20 +26,32 @@ class ViewController: UIViewController, ColorPickerDelegate {
     @IBOutlet weak var gistLabel: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var dateSwitch: UISwitch!
-    @IBOutlet var datePickerConstraint: NSLayoutConstraint!
+    @IBOutlet var      datePickerConstraint: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
     @IBOutlet weak var whiteView: ColorPlateView!
     @IBOutlet weak var redView: ColorPlateView!
     @IBOutlet weak var greenView: ColorPlateView!
     @IBOutlet weak var colorPickerView: ColorPickerPlateView!
+    @IBAction func unwindToViewController(segue:UIStoryboardSegue){
+        
+    }
     
+    var date:Date? {
+        guard (dateSwitch.isOn) else {return nil}
+        return datePicker.date
+    }
     var currentPoint: CGPoint? = nil
     var colorChooser: ColorPickView?
+    
+    var color: UIColor?
+    
     var currentColor: UIColor? {
         didSet {
             guard currentColor != nil, currentColor != oldValue else { return }
             colorChooser?.currentColor = currentColor!
             colorPickerView.selectedColor = currentColor!
+            self.color = currentColor!
         }
     }
     
@@ -53,6 +65,7 @@ class ViewController: UIViewController, ColorPickerDelegate {
         greenView.isSelected = false
         whiteView.isSelected = true
         colorPickerView.isSelected = false
+        self.color = .white
     }
     
     @IBAction func redColorTapped(_ sender: Any) {
@@ -60,6 +73,7 @@ class ViewController: UIViewController, ColorPickerDelegate {
         greenView.isSelected = false
         whiteView.isSelected = false
         colorPickerView.isSelected = false
+        self.color = .red
     }
     
     @IBAction func greenColorTapped(_ sender: Any) {
@@ -67,40 +81,83 @@ class ViewController: UIViewController, ColorPickerDelegate {
         greenView.isSelected = true
         whiteView.isSelected = false
         colorPickerView.isSelected = false
+        self.color = .green
     }
     
     @IBAction func longTapHandler(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == .began {
-            let colorPickerView = ColorPickView(frame: view.bounds)
-            colorPickerView.translatesAutoresizingMaskIntoConstraints = true
-            colorPickerView.autoresizingMask = .init(arrayLiteral: .flexibleHeight, .flexibleWidth)
-            colorPickerView.currentColor = .white
-            self.colorChooser = colorPickerView
-            colorChooser?.hsbColorPicker.delegate = self
-            if let currentPoint = currentPoint {
-                colorPickerView.currentPoint = currentPoint
-            }
-            if currentColor != nil {
-                colorPickerView.currentColor = currentColor!
-            }
-            view.addSubview(colorPickerView)
+        if sender.state == .began{
+            redView.isSelected = false
+            greenView.isSelected = false
+            whiteView.isSelected = false
+            colorPickerView.isSelected = true
+            performSegue(withIdentifier: "ShowColorPalletePicker", sender: nil)
         }
-        redView.isSelected = false
-        greenView.isSelected = false
-        whiteView.isSelected = false
-        colorPickerView.isSelected = true
     }
+    
     @IBAction func tapOnColorPicker(_ sender: Any) {
         redView.isSelected = false
         greenView.isSelected = false
         whiteView.isSelected = false
         colorPickerView.isSelected = true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let colorPickerViewController = segue.destination as? ColorPickViewController, segue.identifier == "ShowColorPalletePicker"{
+            colorPickerViewController.selectedColor = note?.color
+            redView.isSelected = false
+            greenView.isSelected = false
+            whiteView.isSelected = false
+            colorPickerView.isSelected = true
+           
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
+        setupData()
+        scrollView.keyboardDismissMode = .interactive
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardDidShow(_:)),
+            name: UIResponder.keyboardDidShowNotification,
+            object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillBeHidden(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+    }
+    
+    func setupNavigationBar(){
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.rightBarButtonItem = doneButton
+        navigationItem.leftBarButtonItem = cancelButton
+    }
+    
+    @objc func cancel(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func done(){
+        if let uid = note?.uid, let title = titleLabel.text, let content = gistLabel.text{
+            let updatedNote = Note(title: title,
+                                   content: content,
+                                   priority: .base,
+                                   uid: uid,
+                                   color: self.color, expiredDate: date)
+            fileNotebook?.add(updatedNote)
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func setupData(){
         self.titleLabel.text = note?.title
         self.gistLabel.text = note?.content
-        
+        self.color = note?.color
         redView.color = .red
         greenView.color = .green
         whiteView.color = .white
@@ -127,23 +184,7 @@ class ViewController: UIViewController, ColorPickerDelegate {
             whiteView.isSelected = false
             colorPickerView.isSelected = true
         }
-       
-        
-        scrollView.keyboardDismissMode = .interactive
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardDidShow(_:)),
-            name: UIResponder.keyboardDidShowNotification,
-            object: nil)
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillBeHidden(_:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil)
     }
-    
     
     @objc func keyboardWillBeHidden(_ notification: NSNotification) {
         scrollView.contentInset = .zero
