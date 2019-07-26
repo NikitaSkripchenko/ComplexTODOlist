@@ -9,56 +9,152 @@
 import UIKit
 import CocoaLumberjack
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ColorPickerDelegate {
+    var fileNotebook: FileNotebook? = nil
+    var note: Note? = nil
     
-    @IBOutlet weak var backgroundView: UIView!
+    func colorPickerTouched(sender: HSBColorPicker, color: UIColor, point: CGPoint, state: UIGestureRecognizer.State) {
+        self.currentColor = color
+        self.currentPoint = point
+    }
+    
+    func currentColorDidSet(color: UIColor) {
+        self.currentColor = color
+    }
+    
+    @IBOutlet weak var titleLabel: UITextField!
+    @IBOutlet weak var gistLabel: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var dateSwitch: UISwitch!
+    @IBOutlet var datePickerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var whiteView: ColorPlateView!
+    @IBOutlet weak var redView: ColorPlateView!
+    @IBOutlet weak var greenView: ColorPlateView!
+    @IBOutlet weak var colorPickerView: ColorPickerPlateView!
+    
+    var currentPoint: CGPoint? = nil
+    var colorChooser: ColorPickView?
+    var currentColor: UIColor? {
+        didSet {
+            guard currentColor != nil, currentColor != oldValue else { return }
+            colorChooser?.currentColor = currentColor!
+            colorPickerView.selectedColor = currentColor!
+        }
+    }
+    
+    @IBAction func dateSwitcherValueChanged(_ sender: UISwitch) {
+        self.datePicker.isHidden = !sender.isOn
+        datePickerConstraint.isActive = !sender.isOn
+    }
+    
+    @IBAction func whiteColorTapped(_ sender: Any) {
+        redView.isSelected = false
+        greenView.isSelected = false
+        whiteView.isSelected = true
+        colorPickerView.isSelected = false
+    }
+    
+    @IBAction func redColorTapped(_ sender: Any) {
+        redView.isSelected = true
+        greenView.isSelected = false
+        whiteView.isSelected = false
+        colorPickerView.isSelected = false
+    }
+    
+    @IBAction func greenColorTapped(_ sender: Any) {
+        redView.isSelected = false
+        greenView.isSelected = true
+        whiteView.isSelected = false
+        colorPickerView.isSelected = false
+    }
+    
+    @IBAction func longTapHandler(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            let colorPickerView = ColorPickView(frame: view.bounds)
+            colorPickerView.translatesAutoresizingMaskIntoConstraints = true
+            colorPickerView.autoresizingMask = .init(arrayLiteral: .flexibleHeight, .flexibleWidth)
+            colorPickerView.currentColor = .white
+            self.colorChooser = colorPickerView
+            colorChooser?.hsbColorPicker.delegate = self
+            if let currentPoint = currentPoint {
+                colorPickerView.currentPoint = currentPoint
+            }
+            if currentColor != nil {
+                colorPickerView.currentColor = currentColor!
+            }
+            view.addSubview(colorPickerView)
+        }
+        redView.isSelected = false
+        greenView.isSelected = false
+        whiteView.isSelected = false
+        colorPickerView.isSelected = true
+    }
+    @IBAction func tapOnColorPicker(_ sender: Any) {
+        redView.isSelected = false
+        greenView.isSelected = false
+        whiteView.isSelected = false
+        colorPickerView.isSelected = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        #if DEBUG
-        backgroundView.backgroundColor = .green
-        #elseif STAGE
-        backgroundView.backgroundColor = .green
-        #else
-        backgroundView.backgroundColor = .red
-        #endif
-        // Do any additional setup after loading the view.
+        self.titleLabel.text = note?.title
+        self.gistLabel.text = note?.content
         
-        DDLog.add(DDOSLogger.sharedInstance)
-        let fileLogger = DDFileLogger()
-        fileLogger.rollingFrequency = 60 * 60 * 24
-        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
-        DDLog.add(fileLogger)
-        DDLogVerbose("Verbose")
-        DDLogDebug("Debug")
-        DDLogInfo("Info")
-        DDLogWarn("Warn")
-        DDLogError("Error")
-    }
-
-    #if DEBUG
-    static let apiUrl = "alpha.api.someapi.com"
-    #elseif STAGE
-    static let apiUrl = "stage.api.someapi.com"
-    #else
-    static let apiUrl = "prod.api.someapi.com"
-    #endif
-    
-   
-
-
-}
-enum MyError: Error {
-    case runtimeError(String)
-}
-
-extension Double {
-    
-    func reverseSinus() throws -> Double {
-        if (abs(self) < Double.ulpOfOne) {
-            throw MyError.runtimeError("sorry")
+        redView.color = .red
+        greenView.color = .green
+        whiteView.color = .white
+        
+        if note?.color == redView.color {
+            redView.isSelected = true
+            greenView.isSelected = false
+            whiteView.isSelected = false
+            colorPickerView.isSelected = false
+        } else if note?.color == greenView.color{
+            redView.isSelected = false
+            greenView.isSelected = true
+            whiteView.isSelected = false
+            colorPickerView.isSelected = false
+        } else if note?.color == whiteView.color{
+            redView.isSelected = false
+            greenView.isSelected = false
+            whiteView.isSelected = true
+            colorPickerView.isSelected = false
+        }else{
+            currentColor = note?.color
+            redView.isSelected = false
+            greenView.isSelected = false
+            whiteView.isSelected = false
+            colorPickerView.isSelected = true
         }
+       
         
-        return sin(1 / self)
+        scrollView.keyboardDismissMode = .interactive
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardDidShow(_:)),
+            name: UIResponder.keyboardDidShowNotification,
+            object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillBeHidden(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
     }
     
+    
+    @objc func keyboardWillBeHidden(_ notification: NSNotification) {
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
+    }
+    
+    @objc func keyboardDidShow(_ notification: NSNotification) {
+        if let kbRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let edgeInsets: UIEdgeInsets = .init(top: 0, left: 0, bottom: kbRect.height - view.safeAreaInsets.bottom, right: 0)
+            scrollView.contentInset = edgeInsets
+            scrollView.scrollIndicatorInsets = edgeInsets
+        }
+    }
 }

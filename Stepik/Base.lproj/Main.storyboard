@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tws-Cf-7rv">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,18 +14,309 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Stepik" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" id="NEg-bg-NbP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQy-jE-82X">
+                                <rect key="frame" x="0.0" y="88" width="320" height="629"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHY-Ii-ABF">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="629"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="okf-CT-la5">
+                                                <rect key="frame" x="16" y="16" width="288" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uac-MI-mue">
+                                                <rect key="frame" x="16" y="62" width="288" height="166.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ex</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="P8A-ct-G6a">
+                                                <rect key="frame" x="16" y="244.5" width="288" height="66"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVe-DO-RFJ" customClass="ColorPlateView" customModule="Stepik" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="dVe-DO-RFJ" secondAttribute="height" multiplier="1:1" id="KBz-nz-EGz"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="hTO-ZD-cB0" appends="YES" id="XLo-gl-wE1"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avN-T9-V2F" customClass="ColorPlateView" customModule="Stepik" customModuleProvider="target">
+                                                        <rect key="frame" x="74" y="0.0" width="66" height="66"/>
+                                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="avN-T9-V2F" secondAttribute="height" multiplier="1:1" id="PnQ-E7-VrI"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                <color key="value" red="0.99651390314102173" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="SNF-CF-TsG" appends="YES" id="Z4d-Ho-rII"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UgP-QO-9Ix" customClass="ColorPlateView" customModule="Stepik" customModuleProvider="target">
+                                                        <rect key="frame" x="148" y="0.0" width="66" height="66"/>
+                                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="UgP-QO-9Ix" secondAttribute="height" multiplier="1:1" id="l89-J0-Bnf"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                <color key="value" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="GDb-r5-emC" appends="YES" id="l9i-pk-na5"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hJ-C2-Qr5" customClass="ColorPickerPlateView" customModule="Stepik" customModuleProvider="target">
+                                                        <rect key="frame" x="222" y="0.0" width="66" height="66"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="1hJ-C2-Qr5" secondAttribute="height" multiplier="1:1" id="AqH-9g-9Hg"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="VEv-yW-puP" appends="YES" id="vLo-aq-1il"/>
+                                                            <outletCollection property="gestureRecognizers" destination="hFu-z6-QuO" appends="YES" id="Xwx-aH-E4Z"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9T-xV-0Jb">
+                                                <rect key="frame" x="16" y="326.5" width="288" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use destroy date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O03-q0-axX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="239" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bia-Ab-4bJ">
+                                                        <rect key="frame" x="239" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="dateSwitcherValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="SSn-po-w6c"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="H4Q-vm-Sdv">
+                                                <rect key="frame" x="0.0" y="365.5" width="320" height="0.0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="eof-9T-3T7"/>
+                                                </constraints>
+                                                <date key="date" timeIntervalSinceReferenceDate="584713908.62259698">
+                                                    <!--2019-07-13 12:31:48 +0000-->
+                                                </date>
+                                            </datePicker>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="okf-CT-la5" secondAttribute="trailing" constant="16" id="HSX-w1-TpJ"/>
+                                            <constraint firstItem="P8A-ct-G6a" firstAttribute="top" secondItem="uac-MI-mue" secondAttribute="bottom" constant="16" id="Lvw-f1-Y8T"/>
+                                            <constraint firstItem="uac-MI-mue" firstAttribute="leading" secondItem="kHY-Ii-ABF" secondAttribute="leading" constant="16" id="MuI-Jg-TdU"/>
+                                            <constraint firstAttribute="trailing" secondItem="H4Q-vm-Sdv" secondAttribute="trailing" id="OhL-wv-McE"/>
+                                            <constraint firstAttribute="trailing" secondItem="P8A-ct-G6a" secondAttribute="trailing" constant="16" id="PqJ-ad-6lC"/>
+                                            <constraint firstAttribute="trailing" secondItem="r9T-xV-0Jb" secondAttribute="trailing" constant="16" id="QOc-c8-23n"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="H4Q-vm-Sdv" secondAttribute="bottom" id="Tpp-i1-cuz"/>
+                                            <constraint firstItem="r9T-xV-0Jb" firstAttribute="leading" secondItem="kHY-Ii-ABF" secondAttribute="leading" constant="16" id="cHd-Ac-npK"/>
+                                            <constraint firstItem="P8A-ct-G6a" firstAttribute="leading" secondItem="kHY-Ii-ABF" secondAttribute="leading" constant="16" id="fIT-1i-TIA"/>
+                                            <constraint firstItem="H4Q-vm-Sdv" firstAttribute="leading" secondItem="kHY-Ii-ABF" secondAttribute="leading" id="jff-pS-6WN"/>
+                                            <constraint firstItem="uac-MI-mue" firstAttribute="top" secondItem="okf-CT-la5" secondAttribute="bottom" constant="16" id="lc8-kv-l4N"/>
+                                            <constraint firstItem="H4Q-vm-Sdv" firstAttribute="top" secondItem="r9T-xV-0Jb" secondAttribute="bottom" constant="8" id="nOX-f1-4IO"/>
+                                            <constraint firstItem="okf-CT-la5" firstAttribute="top" secondItem="kHY-Ii-ABF" secondAttribute="top" constant="16" id="xTz-JQ-q5m"/>
+                                            <constraint firstItem="okf-CT-la5" firstAttribute="leading" secondItem="kHY-Ii-ABF" secondAttribute="leading" constant="16" id="xoX-uH-W2M"/>
+                                            <constraint firstAttribute="trailing" secondItem="uac-MI-mue" secondAttribute="trailing" constant="16" id="z3v-xN-8BM"/>
+                                            <constraint firstItem="r9T-xV-0Jb" firstAttribute="top" secondItem="P8A-ct-G6a" secondAttribute="bottom" constant="16" id="zHj-lP-tvu"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kHY-Ii-ABF" secondAttribute="trailing" id="B9x-nX-TRW"/>
+                                    <constraint firstItem="kHY-Ii-ABF" firstAttribute="leading" secondItem="CQy-jE-82X" secondAttribute="leading" id="Nsu-e1-vMo"/>
+                                    <constraint firstItem="kHY-Ii-ABF" firstAttribute="width" secondItem="CQy-jE-82X" secondAttribute="width" id="QIV-eQ-LDE"/>
+                                    <constraint firstAttribute="bottom" secondItem="kHY-Ii-ABF" secondAttribute="bottom" id="UrZ-hE-BNS"/>
+                                    <constraint firstItem="kHY-Ii-ABF" firstAttribute="top" secondItem="CQy-jE-82X" secondAttribute="top" id="d7P-wH-gwu"/>
+                                    <constraint firstItem="kHY-Ii-ABF" firstAttribute="height" secondItem="CQy-jE-82X" secondAttribute="height" priority="250" id="eSe-MT-fvE"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CQy-jE-82X" firstAttribute="top" secondItem="eI6-5H-MDd" secondAttribute="top" id="5NM-Nh-nFZ"/>
+                            <constraint firstItem="eI6-5H-MDd" firstAttribute="bottom" secondItem="CQy-jE-82X" secondAttribute="bottom" id="XMr-Xh-Ajz"/>
+                            <constraint firstItem="CQy-jE-82X" firstAttribute="leading" secondItem="eI6-5H-MDd" secondAttribute="leading" id="hb3-5d-GYj"/>
+                            <constraint firstItem="eI6-5H-MDd" firstAttribute="trailing" secondItem="CQy-jE-82X" secondAttribute="trailing" id="xrf-Uo-4Hx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eI6-5H-MDd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Jb5-CO-ADz"/>
+                    <size key="freeformSize" width="320" height="800"/>
                     <connections>
-                        <outlet property="backgroundView" destination="8bC-Xf-vdC" id="9pe-tk-iP6"/>
+                        <outlet property="colorPickerView" destination="1hJ-C2-Qr5" id="3hi-j9-y3d"/>
+                        <outlet property="datePicker" destination="H4Q-vm-Sdv" id="wLf-lR-Rac"/>
+                        <outlet property="datePickerConstraint" destination="eof-9T-3T7" id="YGy-Ov-QGV"/>
+                        <outlet property="dateSwitch" destination="Bia-Ab-4bJ" id="ulC-AQ-2vq"/>
+                        <outlet property="gistLabel" destination="uac-MI-mue" id="P0m-HR-FBS"/>
+                        <outlet property="greenView" destination="UgP-QO-9Ix" id="RDz-Vn-L4F"/>
+                        <outlet property="redView" destination="avN-T9-V2F" id="A1y-7T-zyC"/>
+                        <outlet property="scrollView" destination="CQy-jE-82X" id="WnR-6Z-uG4"/>
+                        <outlet property="titleLabel" destination="okf-CT-la5" id="Fpm-YF-rOS"/>
+                        <outlet property="whiteView" destination="dVe-DO-RFJ" id="Atz-3f-IJm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hTO-ZD-cB0" userLabel="WhiteColor">
+                    <connections>
+                        <action selector="whiteColorTapped:" destination="BYZ-38-t0r" id="z56-lD-K6S"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="SNF-CF-TsG" userLabel="RedColor">
+                    <connections>
+                        <action selector="redColorTapped:" destination="BYZ-38-t0r" id="Rtn-25-V4f"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="GDb-r5-emC" userLabel="GreenColor">
+                    <connections>
+                        <action selector="greenColorTapped:" destination="BYZ-38-t0r" id="7Tu-sN-sCJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hFu-z6-QuO">
+                    <connections>
+                        <action selector="tapOnColorPicker:" destination="BYZ-38-t0r" id="hfl-L6-kSJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="VEv-yW-puP">
+                    <connections>
+                        <action selector="longTapHandler:" destination="BYZ-38-t0r" id="dzO-mt-eJq"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="2745" y="56"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eep-ub-fPH">
+            <objects>
+                <viewController id="i70-DM-hBJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SLo-vX-1Ic">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="agX-bI-2Ai"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dZL-So-16Y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Drd-v2-UrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1950.7246376811595" y="775.44642857142856"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="7ed-NR-mZ1">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tws-Cf-7rv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OeP-Qw-XQf">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="CRh-2n-BeS" kind="relationship" relationship="viewControllers" id="7sP-CU-4dk"/>
+                        <segue destination="IcV-Hy-d63" kind="relationship" relationship="viewControllers" id="Gfg-7r-SvK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="boe-p8-K26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="389.73214285714283"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="mrT-nh-upA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CRh-2n-BeS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="9G6-4F-4Sd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sAJ-gZ-N0o">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4b2-vG-8Ya" kind="relationship" relationship="rootViewController" id="dUV-mO-flo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0V-kZ-aJR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="55.580357142857139"/>
+        </scene>
+        <!--Notes List View Controller-->
+        <scene sceneID="gM8-9N-Ejo">
+            <objects>
+                <viewController id="4b2-vG-8Ya" customClass="NotesListViewController" customModule="Stepik" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hyS-Ax-ey8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VKA-Ku-bdE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="4b2-vG-8Ya" id="pSF-SP-Fz2"/>
+                                    <outlet property="delegate" destination="4b2-vG-8Ya" id="rkw-0L-WFC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VKA-Ku-bdE" firstAttribute="top" secondItem="Bzg-1P-9bp" secondAttribute="top" id="E7e-Ae-Sn9"/>
+                            <constraint firstItem="VKA-Ku-bdE" firstAttribute="leading" secondItem="Bzg-1P-9bp" secondAttribute="leading" id="ISZ-4V-Z7O"/>
+                            <constraint firstItem="Bzg-1P-9bp" firstAttribute="bottom" secondItem="VKA-Ku-bdE" secondAttribute="bottom" id="ZRZ-up-PN0"/>
+                            <constraint firstItem="Bzg-1P-9bp" firstAttribute="trailing" secondItem="VKA-Ku-bdE" secondAttribute="trailing" id="viW-qC-eS3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bzg-1P-9bp"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2wk-nX-xQC"/>
+                    <connections>
+                        <outlet property="notesTable" destination="VKA-Ku-bdE" id="TFW-50-PVR"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ShowNoteEditScreen" id="jOX-1F-RTs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TxM-p5-np3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951" y="56"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="1WB-zG-5z8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IcV-Hy-d63" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="fmF-gX-RSy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="abr-X6-v63">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="i70-DM-hBJ" kind="relationship" relationship="rootViewController" id="P4u-Kc-SgR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eHz-cS-H9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040.5797101449275" y="775.44642857142856"/>
         </scene>
     </scenes>
 </document>

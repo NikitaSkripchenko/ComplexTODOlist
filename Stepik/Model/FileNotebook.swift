@@ -32,15 +32,29 @@ public class FileNotebook {
     }
     
     public func loadFromFile(){
-        guard let jsonArray = read(filePath: filePath) else{
-            return
-        }
-        
-        for object in jsonArray{
-            if let note = Note.parse(json: object){
-                self.add(note)
+        if FileManager.default.fileExists(atPath: filePath){
+            guard let jsonArray = read(filePath: filePath) else{
+                return
             }
+            
+            for object in jsonArray{
+                if let note = Note.parse(json: object){
+                    self.add(note)
+                }
+            }
+        }else{
+            notes = FileNotebook.defaultNotes()
         }
+    }
+    
+    private static func defaultNotes() -> [Note] {
+        return [
+            Note(title: "Заголовок заметки", content: "Текст заметки, Текст заметки, Текст заметки, Текст заметки, Текст заметки", priority: .base, color: .red, expiredDate: nil),
+            Note(title: "Короткая заметка", content: "Текст", priority: .base, color: .green, expiredDate: nil),
+            Note(title: "Длинная заметка", content: "Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки", priority: .base, color: .blue, expiredDate: nil),
+            Note(title: "3аголовок заметки - 2", content: "Текст заметки, Текст заметки, Текст заметки, Текст заметки, Текст заметки", priority: .base, color: .yellow, expiredDate: nil),
+            Note(title: "Короткая заметка", content: "Не забыть выключить утюг", priority: .base, color: .cyan, expiredDate: nil)
+        ]
     }
     
     private func write(data: Data){
