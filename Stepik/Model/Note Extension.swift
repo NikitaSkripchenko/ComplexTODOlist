@@ -2,40 +2,18 @@ import Foundation
 import UIKit
 
 public extension Note{
-    static func priorityToString(_ priority: Priority)->String{
-        switch priority {
-        case .base:
-            return "base priority"
-        case .high:
-            return "hight priority"
-        case .low:
-            return "low priority"
-        }
-    }
-    
-    static func stringToPriority(_ priority: String) -> Priority {
-        switch priority {
-        case "base priority":
-            return .base
-        case "hight priority":
-            return .high
-        case "low priority":
-            return .low
-        default:
-            return .base
-        }
-    }
     
     static func parse(json: [String: Any]) -> Note?{
         let uid = json["uid"] as? String
         let title = json["title"] as? String
         let content = json["content"] as? String
-        let priority = Note.stringToPriority((json["priority"] as? String)!)
+        let priority = Priority.base
+        let expirationDate = Date()
+        
         var color = UIColor.white
         if let hexString = (json["color"] as? String) {
             color = self.convertToColor(hexString: hexString)
         }
-        let expirationDate = Date.stringToDate((json["expirationDate"] as? String)!)
         let note = Note(title: title!, content: content!, priority: priority, uid: uid!, color: color, expiredDate: expirationDate)
         return note
     }
@@ -50,11 +28,11 @@ public extension Note{
         if self.color != .white{
             dic["color"] = self.hexColor
         }
-        if self.expiredDate != nil{
-            dic["expirationDate"] = Date.dateToString(self.expiredDate!) //date
+        if let date = self.expiredDate{
+            dic["expirationDate"] = date.timeIntervalSince1970
         }
         if self.priority != .base{
-            dic["priority"] = Note.priorityToString(self.priority)
+            dic["priority"] = self.priority.rawValue
         }
         return dic
     }
@@ -76,8 +54,7 @@ public extension Note{
         let a = CGFloat(hexColor & 0x000000FF) / mask
         return UIColor(red: r, green: g, blue: b, alpha: a)
     }
-    
-    //вычисляемое поле для получения цвета в виде hex строки
+
     private var hexColor : String {
         var r:CGFloat = 0
         var g:CGFloat = 0

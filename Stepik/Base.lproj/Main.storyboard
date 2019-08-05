@@ -15,33 +15,33 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Stepik" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NEg-bg-NbP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQy-jE-82X">
-                                <rect key="frame" x="0.0" y="88" width="320" height="629"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHY-Ii-ABF">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="629"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="okf-CT-la5">
-                                                <rect key="frame" x="16" y="16" width="288" height="30"/>
+                                                <rect key="frame" x="16" y="16" width="382" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uac-MI-mue">
-                                                <rect key="frame" x="16" y="62" width="288" height="166.5"/>
+                                                <rect key="frame" x="16" y="62" width="382" height="133"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ex</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="P8A-ct-G6a">
-                                                <rect key="frame" x="16" y="244.5" width="288" height="66"/>
+                                                <rect key="frame" x="16" y="211" width="382" height="89.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVe-DO-RFJ" customClass="ColorPlateView" customModule="Stepik" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="89.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -57,7 +57,7 @@
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avN-T9-V2F" customClass="ColorPlateView" customModule="Stepik" customModuleProvider="target">
-                                                        <rect key="frame" x="74" y="0.0" width="66" height="66"/>
+                                                        <rect key="frame" x="97.5" y="0.0" width="89.5" height="89.5"/>
                                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="avN-T9-V2F" secondAttribute="height" multiplier="1:1" id="PnQ-E7-VrI"/>
@@ -72,7 +72,7 @@
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UgP-QO-9Ix" customClass="ColorPlateView" customModule="Stepik" customModuleProvider="target">
-                                                        <rect key="frame" x="148" y="0.0" width="66" height="66"/>
+                                                        <rect key="frame" x="195" y="0.0" width="89.5" height="89.5"/>
                                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="UgP-QO-9Ix" secondAttribute="height" multiplier="1:1" id="l89-J0-Bnf"/>
@@ -87,7 +87,7 @@
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hJ-C2-Qr5" customClass="ColorPickerPlateView" customModule="Stepik" customModuleProvider="target">
-                                                        <rect key="frame" x="222" y="0.0" width="66" height="66"/>
+                                                        <rect key="frame" x="292.5" y="0.0" width="89.5" height="89.5"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="1hJ-C2-Qr5" secondAttribute="height" multiplier="1:1" id="AqH-9g-9Hg"/>
@@ -100,16 +100,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9T-xV-0Jb">
-                                                <rect key="frame" x="16" y="326.5" width="288" height="31"/>
+                                                <rect key="frame" x="16" y="316.5" width="382" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use destroy date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O03-q0-axX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="239" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="333" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bia-Ab-4bJ">
-                                                        <rect key="frame" x="239" y="0.0" width="51" height="31"/>
+                                                        <rect key="frame" x="333" y="0.0" width="51" height="31"/>
                                                         <connections>
                                                             <action selector="dateSwitcherValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="SSn-po-w6c"/>
                                                         </connections>
@@ -117,7 +117,7 @@
                                                 </subviews>
                                             </stackView>
                                             <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="H4Q-vm-Sdv">
-                                                <rect key="frame" x="0.0" y="365.5" width="320" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="355.5" width="414" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" id="eof-9T-3T7"/>
                                                 </constraints>
@@ -167,7 +167,6 @@
                         <viewLayoutGuide key="safeArea" id="eI6-5H-MDd"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jb5-CO-ADz"/>
-                    <size key="freeformSize" width="320" height="800"/>
                     <connections>
                         <outlet property="colorPickerView" destination="1hJ-C2-Qr5" id="3hi-j9-y3d"/>
                         <outlet property="datePicker" destination="H4Q-vm-Sdv" id="wLf-lR-Rac"/>
@@ -327,6 +326,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tws-Cf-7rv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OeP-Qw-XQf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

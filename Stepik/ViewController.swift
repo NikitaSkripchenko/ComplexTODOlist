@@ -132,16 +132,13 @@ class ViewController: UIViewController, ColorPickerDelegate {
     }
     
     func setupNavigationBar(){
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+       
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         navigationItem.rightBarButtonItem = doneButton
-        navigationItem.leftBarButtonItem = cancelButton
+        
     }
     
-    @objc func cancel(){
-        navigationController?.popViewController(animated: true)
-    }
-    
+  
     @objc func done(){
         if let uid = note?.uid, let title = titleLabel.text, let content = gistLabel.text{
             let updatedNote = Note(title: title,
@@ -149,9 +146,17 @@ class ViewController: UIViewController, ColorPickerDelegate {
                                    priority: .base,
                                    uid: uid,
                                    color: self.color, expiredDate: date)
-            fileNotebook?.add(updatedNote)
+//            fileNotebook?.add(updatedNote)
+            let saveNoteOperation = SaveNoteOperation(note: updatedNote, notebook: fileNotebook!, backendQueue: OperationQueue(), dbQueue: OperationQueue())
+            saveNoteOperation.completionBlock = {
+                OperationQueue.main.addOperation{
+                    print("Saved \(updatedNote)")
+                    print(self.fileNotebook?.notes.count)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+           OperationQueue().addOperation(saveNoteOperation)
         }
-        navigationController?.popViewController(animated: true)
     }
     
     func setupData(){

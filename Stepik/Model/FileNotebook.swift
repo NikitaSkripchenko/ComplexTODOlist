@@ -1,16 +1,13 @@
 import Foundation
 
 public class FileNotebook {
-    private(set) var notes: [Note]
-    private(set) var imageNotes: [ImageNote]
-    
-    private let fileManager: FileManager
-    private let filePath: String
-    
-    public func add(_ note: Note){
-        if let index = notes.firstIndex(where: {$0.uid == note.uid}){
+    public private(set) var notes: [Note] = [Note]()
+    public private(set) var imageNotes = [ImageNote]()
+
+    public func add(_ note: Note) {
+        if let index = notes.firstIndex(where: { $0.uid == note.uid }) {
             notes[index] = note
-        }else{
+        } else {
             notes.append(note)
         }
     }
@@ -22,10 +19,14 @@ public class FileNotebook {
             imageNotes.append(imageNote)
         }
     }
-    
-    public func remove(with uid: String){
-        if let index = notes.firstIndex(where: {return $0.uid == uid }){
-            notes.remove(at: index)
+
+    public func replaceAll(notes: [Note]) {
+        self.notes = notes
+    }
+
+    public func remove(with uid: String) {
+        if let index = self.notes.firstIndex(where: { $0.uid == uid }){
+            self.notes.remove(at: index)
         }
     }
     
@@ -34,80 +35,79 @@ public class FileNotebook {
             imageNotes.remove(at: index)
         }
     }
-    
-    public func saveToFile(){
-        var jsonArray: [[String: Any]] = []
-        
-        for note in notes{
-            jsonArray.append(note.json)
-        }
-        
-        guard let jsonData = encodeData(json: jsonArray) else {
+
+    public func saveToFile() {
+        guard let fileUrl = getFileNotebookPath() else {
             return
         }
-        write(data: jsonData)
+        
+        var jsonArrayNotes = [[String: Any]]()
+        for note in notes {
+            jsonArrayNotes.append(note.json)
+        }
+        
+        do {
+            let jsdata = try JSONSerialization.data(withJSONObject: jsonArrayNotes, options: [])
+            try jsdata.write(to: fileUrl)
+        } catch {
+        }
     }
-    
-    public func loadFromFile(){
-        if FileManager.default.fileExists(atPath: filePath){
-            guard let jsonArray = read(filePath: filePath) else{
-                return
-            }
+
+    public func loadFromFile() {
+        guard let fileUrl = getFileNotebookPath() else {
             
-            for object in jsonArray{
-                if let note = Note.parse(json: object){
-                    self.add(note)
-                }else if let note = ImageNote.parse(json: object){
-                    self.add(note)
+            return
+        }
+        
+        do {
+            guard let jsData = try String(contentsOf: fileUrl).data(using: .utf8) else { return }
+            
+            let anyJsonObject = try JSONSerialization.jsonObject(with: jsData, options: [])
+            
+            guard let jsonArrayNotes = anyJsonObject as? [[String : Any]] else { return }
+            
+            notes = []
+            
+            for item in jsonArrayNotes {
+                if let note = Note.parse(json: item) {
+                    add(note)
                 }
+//                if let imageNote = ImageNote.parse(json: item){
+//                    add(imageNote)
+//                }
             }
-        }else{
-            notes = FileNotebook.defaultNotes()
-            imageNotes = FileNotebook.defaultImageNotes()
+        } catch {
         }
+        imageNotes = FileNotebook.defaultImageNotes()
     }
-    
-    private func write(data: Data){
-        fileManager.createFile(atPath: filePath, contents: data, attributes: nil)
-    }
-    
-    private func read(filePath: String) -> [[String: Any]]? {
-        guard fileManager.fileExists(atPath: filePath),
-            let jsonData = fileManager.contents(atPath: filePath) else {
+
+    private func getFileNotebookPath() -> URL? {
+        guard let path = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else {
+            return nil
+        }
+        
+        var isDir: ObjCBool = false
+        let dirUrl = path.appendingPathComponent("notebooks")
+        
+        if !FileManager.default.fileExists(atPath: dirUrl.path, isDirectory: &isDir), !isDir.boolValue {
+            do {
+                try FileManager.default.createDirectory(at: dirUrl, withIntermediateDirectories: true, attributes: nil)
+            } catch {
                 return nil
+            }
         }
-        return decodeData(from: jsonData)
+        
+        let fileUrl = dirUrl.appendingPathComponent("Filenotebook")
+        
+        if !FileManager.default.fileExists(atPath: fileUrl.path) {
+            if !FileManager.default.createFile(atPath: fileUrl.path, contents: nil, attributes: nil) {
+                return nil
+            }
+        }
+        
+        return fileUrl
         
     }
-    
-    private func encodeData(json: Any) -> Data? {
-        do {
-            return try JSONSerialization.data(withJSONObject: json, options: [])
-        } catch let error as NSError {
-            print("error \(error.userInfo)")
-            return nil
-        }
-    }
-    
-    private func decodeData(from data: Data) -> [[String: Any]]? {
-        do {
-            return try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]
-        } catch let error as NSError {
-            print("error \(error.userInfo)")
-            return nil
-        }
-    }
-    
-    public init() {
-        notes = []
-        imageNotes = []
-        fileManager = FileManager.default
-        let URL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first
-        let appFolder = URL!.appendingPathComponent("NOTES")
-        filePath = appFolder.appendingPathComponent("notes.json").absoluteString
-        print(filePath)
-    }
-    
     private static func defaultImageNotes() -> [ImageNote] {
         return [
             ImageNote(name: "Sunrise.png", isDefault: true),
@@ -123,13 +123,5 @@ public class FileNotebook {
             ImageNote(name: "Foggy.png", isDefault: true)
         ]
     }
-    private static func defaultNotes() -> [Note] {
-        return [
-            Note(title: "Заголовок заметки", content: "Текст заметки, Текст заметки, Текст заметки, Текст заметки, Текст заметки", priority: .base, color: .red, expiredDate: nil),
-            Note(title: "Короткая заметка", content: "Текст", priority: .base, color: .green, expiredDate: nil),
-            Note(title: "Длинная заметка", content: "Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки, Длинный текст заметки", priority: .base, color: .blue, expiredDate: nil),
-            Note(title: "3аголовок заметки - 2", content: "Текст заметки, Текст заметки, Текст заметки, Текст заметки, Текст заметки", priority: .base, color: .yellow, expiredDate: nil),
-            Note(title: "Короткая заметка", content: "Не забыть выключить утюг", priority: .base, color: .cyan, expiredDate: nil)
-        ]
-    }
+
 }

@@ -45,21 +45,6 @@ class ColorPickViewController: UIViewController, ColorPickerDelegate {
         }
         colorPickView.currentColor = .white
         colorPickView.hsbColorPicker.delegate = self
-        
-        /*
-         
-         colorPickerView.currentColor = .white
-         self.colorChooser = colorPickerView
-         colorChooser?.hsbColorPicker.delegate = self
-         if let currentPoint = currentPoint {
-         colorPickerView.currentPoint = currentPoint
-         }
-         if currentColor != nil {
-         colorPickerView.currentColor = currentColor!
-         }
-         view.addSubview(colorPickerView)
-         }
-         */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,8 +53,6 @@ class ColorPickViewController: UIViewController, ColorPickerDelegate {
             noteEditViewController.colorPickerView.selectedColor = colorPickView.currentColor
         }
     }
-    
-    
     
     @objc func cancel(){
     navigationController?.popViewController(animated: true)

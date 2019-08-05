@@ -1,10 +1,10 @@
 import Foundation
 import UIKit
 
-public enum Priority {
-    case high
-    case base
-    case low
+public enum Priority:String {
+    case high = "high"
+    case base = "base"
+    case low = "low"
 }
 
 public struct Note {

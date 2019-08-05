@@ -35,6 +35,17 @@
 		8F5CDCDE22EB57F700B0CC24 /* DefaultImageNotes in Resources */ = {isa = PBXBuildFile; fileRef = 8F5CDCDC22EB57F700B0CC24 /* DefaultImageNotes */; };
 		8F5CDCE022EB666B00B0CC24 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CDCDF22EB666B00B0CC24 /* ImageDetailViewController.swift */; };
 		8F5CDCE122EB666B00B0CC24 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5CDCDF22EB666B00B0CC24 /* ImageDetailViewController.swift */; };
+		8FFFEABE22F83E37000CADC8 /* SaveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEAB222F83E37000CADC8 /* SaveNoteDBOperation.swift */; };
+		8FFFEABF22F83E37000CADC8 /* LoadNotesDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEAB322F83E37000CADC8 /* LoadNotesDBOperation.swift */; };
+		8FFFEAC022F83E37000CADC8 /* BaseDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEAB422F83E37000CADC8 /* BaseDBOperation.swift */; };
+		8FFFEAC122F83E37000CADC8 /* RemoveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEAB522F83E37000CADC8 /* RemoveNoteDBOperation.swift */; };
+		8FFFEAC222F83E37000CADC8 /* SaveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEAB622F83E37000CADC8 /* SaveNoteOperation.swift */; };
+		8FFFEAC322F83E37000CADC8 /* LoadNotesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEAB722F83E37000CADC8 /* LoadNotesOperation.swift */; };
+		8FFFEAC422F83E37000CADC8 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEAB822F83E37000CADC8 /* AsyncOperation.swift */; };
+		8FFFEAC522F83E37000CADC8 /* RemoveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEAB922F83E37000CADC8 /* RemoveNoteOperation.swift */; };
+		8FFFEAC622F83E37000CADC8 /* LoadNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEABB22F83E37000CADC8 /* LoadNotesBackendOperation.swift */; };
+		8FFFEAC722F83E37000CADC8 /* BaseBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEABC22F83E37000CADC8 /* BaseBackendOperation.swift */; };
+		8FFFEAC822F83E37000CADC8 /* SaveNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFFEABD22F83E37000CADC8 /* SaveNotesBackendOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +64,11 @@
 		2F308C4E0BCDAF7A689A3D1C /* Pods-StepikTests.stage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepikTests.stage.xcconfig"; path = "Pods/Target Support Files/Pods-StepikTests/Pods-StepikTests.stage.xcconfig"; sourceTree = "<group>"; };
 		35ABE7DEA9D66A23C7AD616C /* Pods-StepikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepikTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepikTests/Pods-StepikTests.release.xcconfig"; sourceTree = "<group>"; };
 		66ACAC759BAB73C70C653B9F /* Pods_Stepik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stepik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A261D6822DA0F2D00105AE5 /* ColorPickerPlateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorPickerPlateView.swift; path = ../ColorPickerPlateView.swift; sourceTree = "<group>"; };
-		6A261D6A22DA1E4E00105AE5 /* ColorPlateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorPlateView.swift; path = ../ColorPlateView.swift; sourceTree = "<group>"; };
-		6A261D6C22DA267600105AE5 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorPickerView.swift; path = ../ColorPickerView.swift; sourceTree = "<group>"; };
-		6A261D6E22DA2C5500105AE5 /* HSBColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HSBColorPicker.swift; path = ../HSBColorPicker.swift; sourceTree = "<group>"; };
-		6A261D7022DA2C6600105AE5 /* CurrentColorIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentColorIndicator.swift; path = ../CurrentColorIndicator.swift; sourceTree = "<group>"; };
+		6A261D6822DA0F2D00105AE5 /* ColorPickerPlateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerPlateView.swift; sourceTree = "<group>"; };
+		6A261D6A22DA1E4E00105AE5 /* ColorPlateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPlateView.swift; sourceTree = "<group>"; };
+		6A261D6C22DA267600105AE5 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		6A261D6E22DA2C5500105AE5 /* HSBColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSBColorPicker.swift; sourceTree = "<group>"; };
+		6A261D7022DA2C6600105AE5 /* CurrentColorIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentColorIndicator.swift; sourceTree = "<group>"; };
 		6A47309722C4CE3D0063B4C2 /* StepikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A47309922C4CE3D0063B4C2 /* StepikTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepikTests.swift; sourceTree = "<group>"; };
 		6A47309B22C4CE3D0063B4C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,15 +85,26 @@
 		763DB946B92D8B9628AC6C64 /* Pods-Stepik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stepik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stepik/Pods-Stepik.debug.xcconfig"; sourceTree = "<group>"; };
 		79152C2CBF46AE785AFA351A /* Pods-StepikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepikTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepikTests/Pods-StepikTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F5CDCC922EA098100B0CC24 /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewController.swift; sourceTree = "<group>"; };
-		8F5CDCCB22EA0A9600B0CC24 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteTableViewCell.swift; path = ../NoteTableViewCell.swift; sourceTree = "<group>"; };
-		8F5CDCCC22EA0A9600B0CC24 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = NoteTableViewCell.xib; path = ../NoteTableViewCell.xib; sourceTree = "<group>"; };
+		8F5CDCCB22EA0A9600B0CC24 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		8F5CDCCC22EA0A9600B0CC24 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		8F5CDCCF22EB0E2900B0CC24 /* ColorPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickViewController.swift; sourceTree = "<group>"; };
 		8F5CDCD122EB4E3500B0CC24 /* ImageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
-		8F5CDCD322EB4EED00B0CC24 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageCollectionViewCell.swift; path = ../ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		8F5CDCD422EB4EED00B0CC24 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImageCollectionViewCell.xib; path = ../ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		8F5CDCD322EB4EED00B0CC24 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F5CDCD422EB4EED00B0CC24 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		8F5CDCD722EB510C00B0CC24 /* ImageNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNote.swift; sourceTree = "<group>"; };
 		8F5CDCDC22EB57F700B0CC24 /* DefaultImageNotes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DefaultImageNotes; sourceTree = "<group>"; };
 		8F5CDCDF22EB666B00B0CC24 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		8FFFEAB222F83E37000CADC8 /* SaveNoteDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteDBOperation.swift; sourceTree = "<group>"; };
+		8FFFEAB322F83E37000CADC8 /* LoadNotesDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadNotesDBOperation.swift; sourceTree = "<group>"; };
+		8FFFEAB422F83E37000CADC8 /* BaseDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDBOperation.swift; sourceTree = "<group>"; };
+		8FFFEAB522F83E37000CADC8 /* RemoveNoteDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveNoteDBOperation.swift; sourceTree = "<group>"; };
+		8FFFEAB622F83E37000CADC8 /* SaveNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteOperation.swift; sourceTree = "<group>"; };
+		8FFFEAB722F83E37000CADC8 /* LoadNotesOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadNotesOperation.swift; sourceTree = "<group>"; };
+		8FFFEAB822F83E37000CADC8 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		8FFFEAB922F83E37000CADC8 /* RemoveNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveNoteOperation.swift; sourceTree = "<group>"; };
+		8FFFEABB22F83E37000CADC8 /* LoadNotesBackendOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadNotesBackendOperation.swift; sourceTree = "<group>"; };
+		8FFFEABC22F83E37000CADC8 /* BaseBackendOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBackendOperation.swift; sourceTree = "<group>"; };
+		8FFFEABD22F83E37000CADC8 /* SaveNotesBackendOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNotesBackendOperation.swift; sourceTree = "<group>"; };
 		9C1095524FDD34DF104650E0 /* Pods-Stepik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stepik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stepik/Pods-Stepik.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,9 +169,10 @@
 		6A6472F522C376CF00E1F9FD /* Stepik */ = {
 			isa = PBXGroup;
 			children = (
+				8FFFEAB022F83E37000CADC8 /* Operations */,
 				6A64731022C3879800E1F9FD /* Model */,
 				6A6472F622C376CF00E1F9FD /* AppDelegate.swift */,
-				8F5CDCDA22EB54E000B0CC24 /* New Group */,
+				8F5CDCDA22EB54E000B0CC24 /* Addons */,
 				6A6472F822C376CF00E1F9FD /* ViewController.swift */,
 				6A6472FA22C376CF00E1F9FD /* Main.storyboard */,
 				8F5CDCDC22EB57F700B0CC24 /* DefaultImageNotes */,
@@ -175,7 +198,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8F5CDCDA22EB54E000B0CC24 /* New Group */ = {
+		8F5CDCDA22EB54E000B0CC24 /* Addons */ = {
+			isa = PBXGroup;
+			children = (
+				8FFFEAAE22F78023000CADC8 /* Notes Addons */,
+				8FFFEAAF22F78045000CADC8 /* Image Addons */,
+			);
+			path = Addons;
+			sourceTree = "<group>";
+		};
+		8FFFEAAE22F78023000CADC8 /* Notes Addons */ = {
 			isa = PBXGroup;
 			children = (
 				6A261D6A22DA1E4E00105AE5 /* ColorPlateView.swift */,
@@ -185,10 +217,51 @@
 				6A261D6822DA0F2D00105AE5 /* ColorPickerPlateView.swift */,
 				8F5CDCCB22EA0A9600B0CC24 /* NoteTableViewCell.swift */,
 				8F5CDCCC22EA0A9600B0CC24 /* NoteTableViewCell.xib */,
+			);
+			path = "Notes Addons";
+			sourceTree = "<group>";
+		};
+		8FFFEAAF22F78045000CADC8 /* Image Addons */ = {
+			isa = PBXGroup;
+			children = (
 				8F5CDCD322EB4EED00B0CC24 /* ImageCollectionViewCell.swift */,
 				8F5CDCD422EB4EED00B0CC24 /* ImageCollectionViewCell.xib */,
 			);
-			path = "New Group";
+			path = "Image Addons";
+			sourceTree = "<group>";
+		};
+		8FFFEAB022F83E37000CADC8 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				8FFFEAB122F83E37000CADC8 /* DBOperations */,
+				8FFFEAB622F83E37000CADC8 /* SaveNoteOperation.swift */,
+				8FFFEAB722F83E37000CADC8 /* LoadNotesOperation.swift */,
+				8FFFEAB822F83E37000CADC8 /* AsyncOperation.swift */,
+				8FFFEAB922F83E37000CADC8 /* RemoveNoteOperation.swift */,
+				8FFFEABA22F83E37000CADC8 /* BackendOpertations */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		8FFFEAB122F83E37000CADC8 /* DBOperations */ = {
+			isa = PBXGroup;
+			children = (
+				8FFFEAB222F83E37000CADC8 /* SaveNoteDBOperation.swift */,
+				8FFFEAB322F83E37000CADC8 /* LoadNotesDBOperation.swift */,
+				8FFFEAB422F83E37000CADC8 /* BaseDBOperation.swift */,
+				8FFFEAB522F83E37000CADC8 /* RemoveNoteDBOperation.swift */,
+			);
+			path = DBOperations;
+			sourceTree = "<group>";
+		};
+		8FFFEABA22F83E37000CADC8 /* BackendOpertations */ = {
+			isa = PBXGroup;
+			children = (
+				8FFFEABB22F83E37000CADC8 /* LoadNotesBackendOperation.swift */,
+				8FFFEABC22F83E37000CADC8 /* BaseBackendOperation.swift */,
+				8FFFEABD22F83E37000CADC8 /* SaveNotesBackendOperation.swift */,
+			);
+			path = BackendOpertations;
 			sourceTree = "<group>";
 		};
 		B07ADB706BD7F39F50F8217F /* Pods */ = {
@@ -392,20 +465,31 @@
 			files = (
 				6A261D6D22DA267600105AE5 /* ColorPickerView.swift in Sources */,
 				6A261D6F22DA2C5500105AE5 /* HSBColorPicker.swift in Sources */,
+				8FFFEABF22F83E37000CADC8 /* LoadNotesDBOperation.swift in Sources */,
 				6A64730922C3771100E1F9FD /* FileNotebook.swift in Sources */,
 				8F5CDCD822EB510C00B0CC24 /* ImageNote.swift in Sources */,
 				6A261D6B22DA1E4E00105AE5 /* ColorPlateView.swift in Sources */,
 				6A64730F22C3778C00E1F9FD /* Note Extension.swift in Sources */,
+				8FFFEAC822F83E37000CADC8 /* SaveNotesBackendOperation.swift in Sources */,
 				6A64730D22C3773E00E1F9FD /* Note.swift in Sources */,
+				8FFFEAC522F83E37000CADC8 /* RemoveNoteOperation.swift in Sources */,
 				8F5CDCD522EB4EED00B0CC24 /* ImageCollectionViewCell.swift in Sources */,
 				6A6472F922C376CF00E1F9FD /* ViewController.swift in Sources */,
+				8FFFEAC022F83E37000CADC8 /* BaseDBOperation.swift in Sources */,
 				8F5CDCCA22EA098100B0CC24 /* NotesListViewController.swift in Sources */,
+				8FFFEAC722F83E37000CADC8 /* BaseBackendOperation.swift in Sources */,
+				8FFFEAC122F83E37000CADC8 /* RemoveNoteDBOperation.swift in Sources */,
 				8F5CDCD022EB0E2900B0CC24 /* ColorPickViewController.swift in Sources */,
+				8FFFEAC322F83E37000CADC8 /* LoadNotesOperation.swift in Sources */,
+				8FFFEAC222F83E37000CADC8 /* SaveNoteOperation.swift in Sources */,
 				6A6472F722C376CF00E1F9FD /* AppDelegate.swift in Sources */,
+				8FFFEABE22F83E37000CADC8 /* SaveNoteDBOperation.swift in Sources */,
 				8F5CDCD222EB4E3500B0CC24 /* ImageListViewController.swift in Sources */,
 				6A261D6922DA0F2D00105AE5 /* ColorPickerPlateView.swift in Sources */,
 				8F5CDCE022EB666B00B0CC24 /* ImageDetailViewController.swift in Sources */,
 				6A261D7122DA2C6600105AE5 /* CurrentColorIndicator.swift in Sources */,
+				8FFFEAC422F83E37000CADC8 /* AsyncOperation.swift in Sources */,
+				8FFFEAC622F83E37000CADC8 /* LoadNotesBackendOperation.swift in Sources */,
 				8F5CDCCD22EA0A9600B0CC24 /* NoteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
