@@ -10,8 +10,9 @@ import UIKit
 import WebKit
 
 class OAuthViewController: UIViewController {
-    private let clientID = "98eeaccada463034d1e3"
-    private let clientSecret = "f7acd5acacc2f04e05abb1d60c60a8010b69ae03"
+    private let clientID = AuthCredentials.clientID
+    private let clientSecret = AuthCredentials.clientSecret
+    
     private let uuid = UUID().uuidString
     var shouldRedirect = false
     

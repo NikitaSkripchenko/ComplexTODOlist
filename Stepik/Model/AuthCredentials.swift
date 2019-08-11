@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AuthCredentials.swift
 //  Stepik
 //
 //  Created by Nikita Skrypchenko  on 8/11/19.
@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+class AuthCredentials {
+    static let clientID = ""
+    static let clientSecret = ""
+}
