@@ -11,35 +11,37 @@ import CocoaLumberjack
 
 class RemoveNoteOperation: AsyncOperation {
     
-    private let noteId: String
+    private let note: Note
     private var saveToBackend: SaveNotesBackendOperation
     private let removeFromDb: RemoveNoteDBOperation
-    
-    init(noteId: String,
+    private(set) var result: Bool? = false
+
+    init(note: Note,
          notebook: FileNotebook,
          backendQueue: OperationQueue,
          dbQueue: OperationQueue) {
         
-        self.noteId = noteId
+        self.note = note
         
-        removeFromDb = RemoveNoteDBOperation(noteId: noteId, notebook: notebook)
+        removeFromDb = RemoveNoteDBOperation(note: note, notebook: notebook)
         saveToBackend = SaveNotesBackendOperation(notes: notebook.notes)
         
         super.init()
         
         removeFromDb.completionBlock = {
-            backendQueue.addOperation(self.saveToBackend)
+            self.saveToBackend.notes = self.removeFromDb.notes
         }
-        
-        addDependency(removeFromDb)
-        addDependency(saveToBackend)
-        
-        dbQueue.addOperation(removeFromDb)
+        saveToBackend.addDependency(removeFromDb)
+        dbQueue.addOperations([removeFromDb, saveToBackend], waitUntilFinished: true)
     }
     
     override func main() {
-        DDLogDebug("Deleted note with ID \(noteId)")
-        
+        switch saveToBackend.result! {
+        case .success:
+            result = true
+        case .failure:
+            result = false
+        }
         finish()
     }
 }

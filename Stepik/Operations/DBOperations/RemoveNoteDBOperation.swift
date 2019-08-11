@@ -11,20 +11,22 @@ import CocoaLumberjack
 
 class RemoveNoteDBOperation: BaseDBOperation {
     
-    private let noteId: String
+    private let note: Note
+    var notes: [Note]
     
-    init(noteId: String,
-         notebook: FileNotebook) {
-        self.noteId = noteId
+    init(note: Note, notebook: FileNotebook) {
+        print("RemoveNoteDBOperation", note.uid)
+        self.note = note
+        self.notes = notebook.notes
         super.init(notebook: notebook)
     }
     
     override func main() {
-        notebook.remove(with: noteId)
+        notebook.remove(with: note.uid)
         notebook.saveToFile()
+        print("RemoveNoteDBOperation", notebook.notes.count)
         
-        DDLogDebug("Remove note from db completed")
-        
+        self.notes = notebook.notes
         finish()
     }
 }

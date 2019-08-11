@@ -1,7 +1,7 @@
 import Foundation
 
 public class FileNotebook {
-    public private(set) var notes: [Note] = [Note]()
+    var notes: [Note] = [Note]()
     public private(set) var imageNotes = [ImageNote]()
 
     public func add(_ note: Note) {

@@ -146,7 +146,6 @@ class ViewController: UIViewController, ColorPickerDelegate {
                                    priority: .base,
                                    uid: uid,
                                    color: self.color, expiredDate: date)
-//            fileNotebook?.add(updatedNote)
             let saveNoteOperation = SaveNoteOperation(note: updatedNote, notebook: fileNotebook!, backendQueue: OperationQueue(), dbQueue: OperationQueue())
             saveNoteOperation.completionBlock = {
                 OperationQueue.main.addOperation{
